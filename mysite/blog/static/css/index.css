@@ -1,0 +1,40 @@
+/*
+*{
+	margin:0;
+	padding:0;
+}
+
+div.container{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+ul.item_root{
+    list-style:none;
+}
+
+li.item_contain{
+    list-style:none;
+    padding:16px;
+    padding-bottom:36px;
+	border-bottom: 1px solid gainsboro;
+}
+
+.post_title{
+	font-family: arial,"microsoft yahei",simhei,simsun,sans-serif;
+	padding-bottom:16px;
+}
+.post_date{
+	font-family: arial,"microsoft yahei",simhei,simsun,sans-serif;
+	padding-bottom:16px;
+}
+.post_content{
+	font-family: arial,"microsoft yahei",simhei,simsun,sans-serif;
+	padding-bottom:24px;
+}
+.post_more{
+
+}
+*/
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stb id="N20">
+ <chip id="n20_demand">
+  <firmware package_md5="2231413324" package_path="e:work" product="firmware" version="1.0.4c"/>
+ </chip>
+ <chip id="n20_kmax">
+  <firmware package_md5="2231413324" package_path="e:work" product="firmware" version="1.0.4c"/>
+ </chip>
+</stb>

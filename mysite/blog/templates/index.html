@@ -1,0 +1,33 @@
+{% extends "base.html" %}　
+{% block title %}XiaoK的个人博客{% endblock %}
+{% block main %}
+<!--        body        -->
+<main class="container">
+    <ul class="home post-list">
+        {% for blog in blog_list.object_list %}
+            <li class="post-list-item">
+                <article class="post-block">
+                    <h2 class="post-title"><a class="post-title-link" href="{% url 'blog_id' blog.id %}">{{ blog.title }}</a></h2>
+                    <div class="post-info">{{ blog.timeStamp }}</div>
+                    <div class="post-content">{{ blog.body }}</div>
+                    <a class="read-more" href="{% url 'blog_id' blog.id %}">more</a>
+                </article>
+            </li>
+          {% endfor %}
+    </ul>
+</main>
+{% endblock %}
+
+{% block post-scripts %}
+<script type="text/javascript">
+    var MAX_DESCRIBE_SIZE = 320
+    var data_size = {{blog_size | safe}}
+    for (var i=0; i<data_size; i++){
+        selector = '.post-content:eq(i)'.replace('i',i)
+        var content_text = $(selector).text();
+        var describe_size = Math.min(content_text.length,MAX_DESCRIBE_SIZE)
+        content_text = content_text.substring(0,describe_size) + '...'
+        var content_html = $(selector).html(content_text);
+    }
+</script>
+{% endblock %}

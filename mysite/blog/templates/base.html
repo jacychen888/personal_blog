@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <link rel="icon" href="{%static '/image/favicon.png'%}">
+        <link rel="stylesheet" type="text/css"  href="{%static '/css/index.css'%}">
+        <link rel="stylesheet" type="text/css"  href="{%static '/css/apollo.css'%}">
+        {% block styles %}{% endblock %}
+        {% block pre-scripts %}{% endblock %}
+    </head>
+    <body class="wrap">
+        <!--      header      -->
+        <header>
+            <a href="/" class="logo-link">
+                <img src="{%static '/image/avatar.jpg'%}" alt="avatar"/>
+            </a>
+            <ul class="nav nav-list">
+                <li class="nav-list-item">
+                    <a href="/" class="nav-list-link active">Home</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="/archive" class="nav-list-link">Archive</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="/about" class="nav-list-link">About</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="/contact" class="nav-list-link">ContactMe</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="{% url 'rss' %}" class="nav-list-link">RSS</a>
+                </li>
+            </ul>
+        </header>
+        <!--        body        -->
+        {% block main %}{% endblock %}
+        <!--        footer      -->
+        <footer style="bottom: 0;">
+            <ul class="paginator">
+            	{% if blog_list.has_previous %}
+                	<li class="prev"><a href="?{{ blog_list.previous_page_number.querystring }}">Prev</a></li>
+                {% endif %}
+                {% if blog_list.has_next %}
+                	<li class="next"><a href="?{{ blog_list.next_page_number.querystring }}">Next</a></li>
+                {% endif %}
+            </ul>
+            <div class="copyright">
+                <p>Copyright © 2018 Xiaok</p>
+                <p>夜灯初上起昏黄,不见当年读书郎。</p>
+            </div>
+        </footer>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        index_selector = '.nav-list-link:eq(index)'.replace('index',{{index}})
+        console.log(index_selector)
+        $('.active').removeClass('active')
+        $(index_selector).addClass('active')
+    </script>
+    {% block post-scripts %}{% endblock %}
+
+    </body>
+</html>

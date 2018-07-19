@@ -1,0 +1,19 @@
+{% extends "base.html" %}　
+{% block title %} Archive {% endblock %}
+{% block main %}
+<!--        body        -->
+<main class="container">
+    <div class="archive">
+        {% regroup blog_list.object_list by timeStamp.year as blogs_by_year %}
+            {% for blog in blogs_by_year %}
+                <h2 class="archive-year">{{ blog.grouper }}</h2>
+                    {% for blog in blog.list %}
+                        <div class="post-item">
+                            <div class="post-info"> {{ blog.timeStamp }} </div>
+                            <a class="post-title-link"  href="{% url 'blog_id' blog.id %}">{{ blog.title}}</a>
+                        </div>
+                    {% endfor %}
+            {% endfor%}
+    </div>
+</main>
+{% endblock %}

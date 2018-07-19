@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+    {% load static %}
+    {% load highlight %}
+    <style>
+        span.highlighted {
+            color: red;
+        }
+    </style>
+      <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <!-- page core CSS -->
+    <link rel="stylesheet" type="text/css"  href="{%static '/css/pages.css'%}">
+</head>
+<body>
+
+        {% for blog in page.object_list %}
+            <div id="base_item">
+                 <h1>{{query}}</h1>
+                  <p2>{% highlight blog.object.title with query %}</p2>
+                  <p>{{ blog.object.timeStamp }}</p>
+                  <p>{{ blog.body }}</p>
+                  <div class="page-divider"></div>
+            </div>
+        {% endfor %}
+
+</body>
+</html>
