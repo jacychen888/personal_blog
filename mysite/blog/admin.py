@@ -4,7 +4,7 @@ from blog.models import BlogPost
 
 # Register your models here.
 class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'body', 'timeStamp']
+    list_display = ['title', 'timeStamp']
     list_filter = ('timeStamp',)
     date_hierarchy = 'timeStamp'
 
