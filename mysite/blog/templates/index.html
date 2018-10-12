@@ -9,7 +9,7 @@
                 <article class="post-block">
                     <h2 class="post-title"><a class="post-title-link" href="{% url 'blog_id' blog.id %}">{{ blog.title }}</a></h2>
                     <div class="post-info">{{ blog.timeStamp }}</div>
-                    <div class="post-content">{{ blog.body | safe}}</div>
+                    <div class="post-content">{{ blog.body}}</div>
                     <a class="read-more" href="{% url 'blog_id' blog.id %}">more</a>
                 </article>
             </li>
